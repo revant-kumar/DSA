@@ -32,6 +32,6 @@ int main() {
     int n = sizeof(nums)/sizeof(nums[0]);
     
     int x = 67;
-    Solution s;
-    cout<<"Output: "<<s.search(nums,x);
+    Solution sol;
+    cout<<"Output: "<<sol.search(nums,x);
 }
