@@ -27,5 +27,5 @@ int main(){
     vector<int> nums = {1,3,5,6};
     int target = 2;
     Solution s;
-    cout<<s.searchInsert(nums,targetṇ);
+    cout<<s.searchInsert(nums,target);
 }
