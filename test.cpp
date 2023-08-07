@@ -3,30 +3,28 @@ using namespace std;
 
 class Solution {
 public:
-    int findMaxConsecutiveOnes(vector<int>& nums) {
+    vector<int> searchRange(vector<int>& nums, int target) {
         int n = nums.size();
-        int i = 0, j = 0, count = 0, maxCount = 0;
-        while(j<n){
-            if(nums[j]!=0){
-                i=j;
-                count = 0;
-                while(i<n && nums[i]!=0){
-                    count++;
-                    i++;
-                }
-                maxCount = max(count, maxCount);
-                j = i+1;
+        int l = 0, r = n-1;
+        while(l<=r){
+            int mid = (l+r)/2;
+            if(nums[mid]==target){
+                l = mid-1;
+                r = mid+1;
+            }
+            else if(nums[mid]>target){
+                r = mid-1;
             }
             else{
-                j++;
+                l = mid+1;
             }
         }
-        return maxCount;
+
+        return {l,r};
     }
 };
-
 int main(){
     vector<int> nums = {0,0,1,1,1};
     Solution s;
-    cout<<s.findMaxConsecutiveOnes(nums);
+    cout<<s.searchRange(nums);
 }
